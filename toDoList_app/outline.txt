@@ -1,0 +1,2 @@
+techs:python, django, html5, css3, javascript
+feats:login reg, add/update/delete, one to many relationship:tasks to section, one big general section as well.
