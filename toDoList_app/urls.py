@@ -10,5 +10,5 @@ urlpatterns = [
     path('login', views.login),
     path('logout', views.logout),
     # TASK PROCESS
-    path('createTask', views.createTask),
+    path('createGeneralTask', views.createGenTask),
 ]

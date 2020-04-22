@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 import bcrypt
-from .models import User, Task
+from .models import User, Task, Collection
 
 def index(request):
     return render(request, 'index.html')
@@ -27,8 +27,12 @@ def register(request):
         email = lowerCaseEmail, 
         password = pw_hash
     )
+    Collection.objects.create(
+        title = "General",
+        desc = "Things that just need to get done.",
+        user = user
+    )
     request.session['user_id'] = user.id
-
     return redirect('/homepage')
 
 def login(request):
@@ -51,11 +55,10 @@ def homepage(request):
     if "user_id" not in request.session:
         messages.error(request, "Must be logged in")
         return redirect('/')
-    
     user_id = request.session['user_id']
     context = {
         "user": User.objects.get(id=user_id),
-        "tasks": Task.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
+        "user_tasks": Task.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
     }
     return render(request, 'homepage.html', context)
 
@@ -76,7 +79,7 @@ def logout(request):
     request.session.clear()
     return redirect('/')
 
-def createTask(request):
+def createGenTask(request):
     if "user_id" not in request.session:
         messages.error(request, "Must be logged in")
         return redirect('/')
@@ -85,17 +88,11 @@ def createTask(request):
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
-        return redirect('/addTask')
-    if len(post['due_date']) == 0:
-        Task.objects.create(
-            content = post['content'],
-            user = User.objects.get(id = request.session['user_id'])
-        )
-        return redirect('/addTask')
+        return redirect('/homepage')
     Task.objects.create(
-        content = post['content'],
-        due_date = post['due_date'],
+        content = post['content'].capitalize(),
         user = User.objects.get(id = request.session['user_id']),
+        collection = Collection.objects.get(title = "General")
     )
     return redirect('/homepage')
 
