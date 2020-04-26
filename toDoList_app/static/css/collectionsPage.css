@@ -1,0 +1,43 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type=text] {
+    background-color: #eeeeee;
+    font-size: 6vw;
+    padding-bottom: 2vw;
+    text-align: center;
+    padding: 1vw 0;
+}
+
+form input[type=text]:focus {
+    background-color: #e7e7e7;
+}
+
+form input[type=submit] {
+    min-width: 1rem;
+    margin-top: 2vw;
+    padding: 1vh 2vw;
+    background-color: #000066b6;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    align-self: center;
+    font-size: 4.5vw;
+    border: .95px rgb(0, 0, 0) solid;
+}
+
+form input[type=submit]:hover {
+    background-color: #000066da;
+}
+
+.coll-cont h1 {
+    font-size: 6vw;
+    padding: 0 2vw;
+    color: rgba(0, 0, 0, 0.637);
+    text-decoration: underline solid;
+    margin-top: 2vw;
+    letter-spacing: .5vw;
+}

@@ -1,0 +1,58 @@
+.coll-cont .collection {
+    /* border: .25vw rgba(0, 0, 0, 0.315) solid; */
+    /* border-top: .15vw black solid; */
+    margin: 5vh 2vw;
+    box-shadow: 0 0.1px 0.3px rgba(0, 0, 0, 0.017), 0 0.3px 0.8px rgba(0, 0, 0, 0.025), 0 0.5px 1.3px rgba(0, 0, 0, 0.031), 0 0.8px 1.9px rgba(0, 0, 0, 0.035), 0 1.1px 2.8px rgba(0, 0, 0, 0.04), 0 1.6px 3.9px rgba(0, 0, 0, 0.045), 0 2.3px 5.5px rgba(0, 0, 0, 0.049), 0 3.3px 8px rgba(0, 0, 0, 0.055), 0 5.1px 12.4px rgba(0, 0, 0, 0.063), 0 9px 22px rgba(0, 0, 0, 0.08);
+    background-color: #eeeeee;
+}
+
+.coll-cont .collection .title {
+    /* background-color: #eeeeee; */
+    text-align: center;
+    padding: 0vh 0vw 1vh .5vw;
+    letter-spacing: .25vw;
+    font-size: 6vw;
+    font-weight: 550;
+    border-bottom: 1px rgba(0, 0, 0, 0.158) solid;
+}
+
+.coll-cont .collection ul {
+    /* list-style: initial; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.096);
+}
+
+.coll-cont .collection ul li {
+    padding: .5vh 2vw;
+    /* border-left: 1px solid black; */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.062);
+    font-size: 4.5vw;
+}
+
+.coll-cont .collection .coll-footer {
+    display: flex;
+    justify-content: space-between;
+    /* height: 0; */
+    background-color: transparent;
+}
+
+.coll-cont .collection .coll-footer div {
+    margin: 2vw 4vw;
+    font-size: 3.9vw;
+}
+
+.coll-cont .collection .coll-footer div:nth-child(1) {
+    color: rgba(0, 0, 0, 0.603);
+}
+
+.coll-cont .collection .coll-footer div:nth-child(2) {
+    /* background-color: #000066; */
+    color: #00006685;
+    /* padding: 2vw; */
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coll-cont .collection .coll-footer div:nth-child(2) a:nth-child(2) {
+    color: #ea638c;
+}
