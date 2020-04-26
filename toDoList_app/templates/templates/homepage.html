@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/collection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+</head>
+
+<body>
+    <div class="for-footer">
+        <div class="logo-trigger"></div>
+        <div class="logo">Task Man</div>
+        <nav>
+            <div class="nav-logo">X</div>
+            <ul>
+                <li><a href="/homepage"><span>Home</span></a></li>
+                <li><a href="/collections"><span>Manage Collections</span></a></li>
+                <li><a href="/logout"><span>Log out</span></a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <img src="https://img.icons8.com/ios-filled/50/000000/menu-rounded.png" />
+        </div>
+        <div class="main">
+            <div><img class="add-button" src="https://img.icons8.com/cotton/64/000000/add--v2.png" /> Add a General Task</div>
+            <form action="/createGeneralTask" method="POST">
+                {% csrf_token %}
+                <input name="content" id="add-text" type="text" placeholder="Add General Task e.g Get Milk" autocomplete="off" autofocus="true">
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
+        {% if general_tasks %}
+        <div class="general">
+            <ul>
+                {% for task in general_tasks %}
+                <li>
+                    <div class="content">{{task.content}}</div>
+                    <div class="buttons">
+                        <button><a href="/deleteHomepageTask/{{task.id}}"><span>Delete</span></a></button><br>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div id="show-button">
+            <div class="show-more">Show All</div>
+            <div class="show-less">Show Less</div>
+        </div>
+        {% else %}
+        <div class="no-tasks">No General Tasks</div>
+        {% endif %} {% if user_collections %}
+        <div class="coll-cont">
+            <h1>All Collections
+                <div><span><img src="{% static 'images/plusIcon.png' %}" alt="plus sign"> Collection</span></div>
+            </h1>
+            {% for collection in user_collections %}
+            <div class="collection">
+                <div class="title"><a href="/collections/{{collection.title}}"><span>{{collection.title}}</span></a></div>
+                <ul>
+                    {% for task in collection.tasks.all %}
+                    <li>{{task.content}}</li>
+                    {% endfor %}
+                </ul>
+                <div class="coll-footer">
+                    <div><a>Show More</a></div>
+                    <div><a href="">Edit</a> <a href="collections/delete/{{collection.id}}">Delete</a></div>
+                </div>
+            </div>
+            {% endfor %} {% else %}
+            <div class="else">
+                <h1>All Collections
+                    <div><span><img src="{% static 'images/plusIcon.png' %}" alt="plus sign"> <a href="/collections">Collection</a></span></div>
+                </h1>
+                <div class="">No Collections</div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer>
+        <!-- <a href="https://icons8.com/icon/70761/chevron-left">Chevron Left icon by Icons8</a> -->
+        <a target="_blank" href="https://icons8.com/icon/36389/menu-rounded">Menu Rounded icon by Icons8</a>
+        <div class="name">Developed by: Vincent Salazar</div>
+        <div>Logged in as: {{user.first_name}}</div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/components/collection.js' %}"></script>
+    <script src="{% static 'js/homepage.js' %}"></script>
+</body>
+
+</html>
