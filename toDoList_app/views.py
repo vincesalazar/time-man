@@ -3,8 +3,50 @@ from django.contrib import messages
 import bcrypt
 from .models import User, Task, Collection
 
+# ****** TEMPLATES ********
+
 def index(request):
     return render(request, 'index.html')
+
+def homepage(request):
+    if "user_id" not in request.session:
+        messages.error(request, "Must be logged in")
+        return redirect('/')
+    user_id = request.session['user_id']
+    print(user_id)
+    collection = Collection.objects.get(title="General")
+    print(collection.id)
+    collections = Collection.objects.exclude(title = "General")
+    context = {
+        "user": User.objects.get(id=user_id),
+        "general_tasks": Task.objects.filter(user_id = user_id, collection_id = collection.id).order_by('-created_at'),
+        "user_collections": collections.filter(user_id = user_id).order_by('-created_at'),
+    }
+    return render(request, 'homepage.html', context)
+
+def collectionsPage (request):
+    if "user_id" not in request.session:
+        messages.error(request, "Must be logged in")
+        return redirect('/')
+    
+    user_id = request.session['user_id']
+
+    context = {
+        "user": User.objects.get(id=user_id),
+        "user_collections": Collection.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
+    }
+    return render(request, "collectionsPage.html", context)
+
+def singleCollection(request, title):
+    if 'user_id' not in request.session:
+       messages.error(request, 'Must be logged in')
+       return redirect('/')
+    context = {
+        "collection": Collection.objects.get(title = title, user_id = request.session['user_id'])
+    }
+    return render(request, "singleCollection.html", context)
+
+# ******** PROCESS ******* 
 
 def register(request):
     post = request.POST
@@ -51,33 +93,11 @@ def login(request):
         messages.error(request, "please check your email and password.")
         return redirect('/')
 
-def homepage(request):
-    if "user_id" not in request.session:
-        messages.error(request, "Must be logged in")
-        return redirect('/')
-    user_id = request.session['user_id']
-    context = {
-        "user": User.objects.get(id=user_id),
-        "user_tasks": Task.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
-    }
-    return render(request, 'homepage.html', context)
-
-def addTask (request):
-    if "user_id" not in request.session:
-        messages.error(request, "Must be logged in")
-        return redirect('/')
-    
-    user_id = request.session['user_id']
-
-    context = {
-        "user": User.objects.get(id=user_id),
-        "tasks": Task.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
-    }
-    return render(request, "addTask.html", context)
-
 def logout(request):
     request.session.clear()
     return redirect('/')
+
+# ******* TASK/COLLECTION PROCESS **********
 
 def createGenTask(request):
     if "user_id" not in request.session:
@@ -92,21 +112,49 @@ def createGenTask(request):
     Task.objects.create(
         content = post['content'].capitalize(),
         user = User.objects.get(id = request.session['user_id']),
-        collection = Collection.objects.get(title = "General")
+        collection = Collection.objects.get(title = "General", user_id = request.session['user_id'])
     )
     return redirect('/homepage')
 
+def deleteHomepageTask(request, taskId):
+    if "user_id" not in request.session:
+        messages.error(request, "Must be logged in")
+        return redirect('/')
+    task = Task.objects.get(id = taskId)
+    user = User.objects.get(id = request.session["user_id"])
+    print(task and user)
+    if task.user_id != user.id:
+        user.delete()
+        return redirect('/')
+    else:
+        task.delete()
+        return redirect('/homepage')
 
+def createCollection(request):
+    if "user_id" not in request.session:
+        messages.error(request, "Must be logged in")
+        return redirect('/')
+    post = request.POST
+    Collection.objects.create(
+        title = post['title'].capitalize(),
+        user = User.objects.get(id = request.session['user_id']),
+    )
+    return redirect('/collections')
 
-
-
-
-
-
-
-
-
-
+def deleteCollection(request, colId):
+    if 'user_id' not in request.session:
+       messages.error(request, 'Must be logged in')
+       return redirect('/')
+    collection = Collection.objects.get(id = colId)
+    user = User.objects.get(id = request.session['user_id'])
+    if collection.user_id != user.id:
+        user.delete()
+        return redirect('/')
+    else:
+        print('l8er')
+        collection.delete()
+        return redirect('/homepage')
+    
 
 
 

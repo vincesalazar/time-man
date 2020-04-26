@@ -30,6 +30,14 @@ class User(models.Model):
     updated_at = models.DateTimeField(auto_now = True)
     objects = UserManager()
 
+class Collection(models.Model):
+    title = models.CharField(max_length=64)
+    desc = models.CharField(max_length=255, default = "None")
+    created_at = models.DateTimeField(auto_now = True)
+    updated_at = models.DateTimeField(auto_now = True)
+
+    user = models.ForeignKey(User, related_name="collections", on_delete=models.CASCADE, default = "")
+
 class TaskManager(models.Manager):
     def basic_validator(self, post_data):
         errors = {}
@@ -39,11 +47,12 @@ class TaskManager(models.Manager):
 
 class Task(models.Model):
     content = models.CharField(max_length=255)
-    due_date = models.DateField(null= True)
     completed = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now = True)
     updated_at = models.DateTimeField(auto_now = True)
 
     user = models.ForeignKey(User, related_name = "tasks", on_delete= models.CASCADE)
+    collection = models.ForeignKey(Collection, related_name = "tasks", on_delete = models.CASCADE)
+
     objects = TaskManager()
