@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <h1>Registration</h1>
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}
@@ -17,6 +16,7 @@
         {% endfor %}
     </ul>
     {% endif %}
+    <h1>Registration</h1>
     <form action="register" method="POST">
         {% csrf_token %}
         <label for="">
