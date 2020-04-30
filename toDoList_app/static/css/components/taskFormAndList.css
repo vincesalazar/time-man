@@ -1,0 +1,131 @@
+.main-form {
+    /* padding: 2vw 1vw; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-form form div .add-button {
+    width: 7vw;
+}
+
+.main-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-form form input[type=text] {
+    background-color: #fbfbfb;
+    font-size: 6vw;
+    text-align: center;
+    padding: 1vw 0;
+    outline: none;
+    border: none;
+}
+
+.main-form form input[type=text]:focus {
+    background-color: #f2f2f2;
+}
+
+.main-form form input[type=submit] {
+    min-width: 1rem;
+    margin-top: 2vw;
+    padding: 1vh 1vw;
+    background-color: #000066b6;
+    background-color: transparent;
+    color: #000066;
+    border-radius: .2rem;
+    outline: none;
+    border: none;
+    align-self: center;
+    font-size: 4.5vw;
+    border: .95px rgb(0, 0, 0) solid;
+}
+
+.main-form form input[type=submit]:hover {
+    background-color: #000066da;
+}
+
+.tasks {
+    height: auto;
+    overflow: scroll;
+    transition: height 1s;
+    /* background-color: red; */
+}
+
+.tasks ul {
+    margin-top: 2vw;
+}
+
+.tasks ul li {
+    /* background-color: #0000661c; */
+    font-size: 5vw;
+    overflow: scroll;
+    word-wrap: break-word;
+    padding-top: 2vw;
+    padding: 2vw 2vw 0 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: rgba(0, 0, 0, 0.247) .1vw solid;
+    color: rgba(0, 0, 0, 0.842);
+    /* position: relative; */
+}
+
+.tasks ul li .content {
+    width: 50%;
+    text-align: left;
+}
+
+.tasks ul li .buttons {
+    width: 7%;
+    display: flex;
+    padding-top: 1vw;
+    opacity: .8;
+}
+
+.tasks ul li .buttons img {
+    width: 3vw;
+}
+
+.tasks ul li .buttons button {
+    width: 20vw;
+    border: none;
+    background-color: transparent;
+}
+
+.tasks ul li .buttons button span {
+    border-bottom: rgba(0, 0, 0, 0.473) .15vw solid;
+    padding: 0 .5vw;
+    font-size: 4vw;
+    color: #ea638c;
+    font-weight: 500;
+    letter-spacing: .4vw;
+}
+
+.tasks ul li .buttons button:nth-child(1) {
+    margin-bottom: 1vw;
+}
+
+.tasks div::-webkit-scrollbar {
+    width: 0px;
+}
+
+.tasks div p {
+    margin: 0;
+}
+
+
+/* IF NO TASKS */
+
+.no-tasks {
+    height: 20vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00000046;
+    font-size: 6vw;
+    font-weight: 550;
+    background-color: #fbfbfb;
+}

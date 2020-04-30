@@ -84,7 +84,7 @@ nav {
     right: 0;
     height: 0;
     /* bottom: 0; */
-    background-color: #eeeeee;
+    background-color: #fbfbfb;
     display: none;
     opacity: 0;
     z-index: 3;
@@ -132,7 +132,7 @@ nav ul li {
 }
 
 nav li span {
-    border-bottom: 1px solid black;
+    /* border-bottom: .5px solid black; */
 }
 
 nav ul li a:hover {
