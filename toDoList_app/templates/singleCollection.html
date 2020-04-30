@@ -7,27 +7,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/taskFormAndList.css' %}">
     <link rel="stylesheet" href="{% static 'css/singleCollection.css' %}">
 </head>
 
 <body>
-    <div class="logo-trigger"></div>
-    <div class="logo">Task Man</div>
-    <nav>
-        <div class="nav-logo">X</div>
-        <ul>
-            <li><a href="/homepage"><span>Home</span></a></li>
-            <li><a href="/collections"><span>Manage Collections</span></a></li>
-            <li><a href="/logout"><span>Log out</span></a></li>
-        </ul>
-    </nav>
-    <div class="hamburger">
-        <img src="https://img.icons8.com/ios-filled/50/000000/menu-rounded.png" />
+    <div class="for-footer">
+        <div class="logo-trigger"></div>
+        <div class="logo" onclick="logoClick()">Task Man</div>
+        <nav>
+            <div class="nav-logo">X</div>
+            <ul>
+                <li><a href="/homepage"><span>Home</span></a></li>
+                <li><a href="/collections"><span>Manage Collections</span></a></li>
+                <li><a href="/logout"><span>Log out</span></a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <img src="https://img.icons8.com/ios-filled/50/000000/menu-rounded.png" />
+        </div>
+        <h3 class="coll-title">{{collection.title}}</h3>
+        <div class="main-form">
+            <form action="/createCollTask" method="POST">
+                {% csrf_token %}
+                <input name="content" id="add-text" type="text" placeholder="Add Task to {{collection.title}}" autocomplete="off" autofocus="true">
+                <input type="hidden" name="id" value="{{collection.id}}">
+                <input type="submit" value="Add Task">
+            </form>
+        </div>
+        {% if collection.tasks.all %}
+        <div class="tasks">
+            <ul>
+                {% for task in tasks %}
+                <li>
+                    <div class="content">{{task.content}}</div>
+                    <div class="buttons">
+                        <!-- <button><a href="/deleteHomepageTask/{{task.id}}"><span>Delete</span></a></button><br> -->
+                        <a href="/delete/singleColl/{{collection.id}}/{{task.id}}"><img src="{% static 'images/x-mark64.png' %}" alt="Delete Button"></a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        <div class="no-tasks" style="font-size:5vw;">No tasks for {{collection.title}}</div>
+        {% endif %}
     </div>
-    <h3>{{collection.title}}</h3>
+    <div style="font-size: 3.5vw; color: #000000a8; letter-spacing: .4vw; text-align: center;">last loaded at:<br/>{% now "SHORT_DATETIME_FORMAT" %}</div>
+    <footer>
+        <!-- <a href="https://icons8.com/icon/70761/chevron-left">Chevron Left icon by Icons8</a> -->
+        <a target="_blank" href="https://icons8.com/icon/36389/menu-rounded">Menu Rounded icon by Icons8</a>
+        <div class="name">Developed by: Vincent Salazar</div>
+        <div>Logged in as: {{user.first_name}}</div>
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js "></script>
+    <script src="{% static 'js/global.js' %}"></script>
     <script src="{% static 'js/navbar.js' %}"></script>
-    <script src="{% static 'js/.js' %}"></script>
+    <script src="{% static 'js/singleCollection.js' %}"></script>
 </body>
 
 </html>

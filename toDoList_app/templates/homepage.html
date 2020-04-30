@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/collection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/components/taskFormAndList.css' %}">
     <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
 </head>
 
@@ -27,23 +28,22 @@
         <div class="hamburger">
             <img src="https://img.icons8.com/ios-filled/50/000000/menu-rounded.png" />
         </div>
-        <div class="main">
-            <div><img class="add-button" src="https://img.icons8.com/cotton/64/000000/add--v2.png" /> Add a General Task</div>
-            <form action="/createGeneralTask" method="POST">
+        <div class="main-form">
+            <form action="/homepage/createTask" method="POST">
                 {% csrf_token %}
                 <input name="content" id="add-text" type="text" placeholder="Add General Task e.g Get Milk" autocomplete="off" autofocus="true">
                 <input type="submit" value="Add Task">
             </form>
         </div>
         {% if general_tasks %}
-        <div class="general">
+        <div class="tasks">
             <ul>
                 {% for task in general_tasks %}
                 <li>
                     <div class="content">{{task.content}}</div>
                     <div class="buttons">
                         <!-- <button><a href="/deleteHomepageTask/{{task.id}}"><span>Delete</span></a></button><br> -->
-                        <a href="/deleteHomepageTask/{{task.id}}"><img src="{% static 'images/x-mark64.png' %}" alt="Delete Button"></a>
+                        <a href="/delete/homepageTask/{{task.id}}"><img src="{% static 'images/x-mark64.png' %}" alt="Delete Button"></a>
                     </div>
                 </li>
                 {% endfor %}
