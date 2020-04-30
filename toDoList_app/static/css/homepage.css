@@ -32,6 +32,8 @@
     padding-bottom: 2vw;
     text-align: center;
     padding: 1vw 0;
+    outline: none;
+    border: none;
 }
 
 .main form input[type=text]:focus {
@@ -57,7 +59,7 @@
 }
 
 .general {
-    height: 35vh;
+    height: auto;
     overflow: scroll;
     transition: height 1s;
     /* background-color: red; */
@@ -77,12 +79,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: rgba(0, 0, 0, 0.377) .1vw solid;
+    border-bottom: rgba(0, 0, 0, 0.247) .1vw solid;
+    color: rgba(0, 0, 0, 0.842);
     /* position: relative; */
-}
-
-.general ul li:nth-child(even) {
-    /* background-color: #eeeeee; */
 }
 
 .general ul li .content {
@@ -90,16 +89,30 @@
     text-align: left;
 }
 
+.general ul li .buttons {
+    width: 7%;
+    display: flex;
+    padding-top: 1vw;
+    opacity: .8;
+}
+
+.general ul li .buttons img {
+    width: 3vw;
+}
+
 .general ul li .buttons button {
     width: 20vw;
-    font-size: 4vw;
     border: none;
     background-color: transparent;
 }
 
 .general ul li .buttons button span {
-    border-bottom: black .3vw solid;
+    border-bottom: rgba(0, 0, 0, 0.473) .15vw solid;
     padding: 0 .5vw;
+    font-size: 4vw;
+    color: #ea638c;
+    font-weight: 500;
+    letter-spacing: .4vw;
 }
 
 .general ul li .buttons button:nth-child(1) {
@@ -134,14 +147,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgba(0, 0, 0, 0.274);
+    color: #00000046;
     font-size: 6vw;
     font-weight: 550;
     background-color: #ededed;
 }
 
 .coll-cont h1 {
-    font-size: 5vw;
+    font-size: 5.5vw;
     padding: 0 2vw;
     color: rgba(0, 0, 0, 0.637);
     margin-top: 3vw;
@@ -159,6 +172,7 @@
     padding: 0;
     color: black;
     text-align: end;
+    letter-spacing: .25vw;
 }
 
 .coll-cont h1 div span {
@@ -171,11 +185,13 @@
     width: 2.5vw;
 }
 
+
+/* IF THEYRE ARE NO COLLECTIONS */
+
 .else h1 {
     font-size: 5vw;
     padding: 0 2vw;
     color: rgba(0, 0, 0, 0.637);
-    margin-top: 3vw;
     letter-spacing: .5vw;
     display: flex;
     justify-content: space-between;
@@ -193,7 +209,6 @@
 }
 
 .else h1 div span {
-    border-bottom: .25vw black solid;
     padding-bottom: .25vh;
     opacity: .75;
     padding-right: 1vw;

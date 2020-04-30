@@ -9,9 +9,9 @@
 
 body {
     margin: 0;
-    padding-top: 10.232344%;
+    padding-top: 11%;
     /* background-color: #598392; */
-    background-color: #eeeeee;
+    background-color: #fbfbfb;
     display: flex;
     /* justify-content: center; */
     flex-direction: column;
@@ -34,10 +34,6 @@ h5 {
 a {
     text-decoration: none;
     color: inherit;
-}
-
-a:hover {
-    /* color: rgb(119, 212, 255); */
 }
 
 ul {
@@ -71,7 +67,6 @@ input[type=text] {
     position: absolute;
     top: 1vw;
     left: 1vw;
-    background-color: #eeeeee;
     z-index: 0;
 }
 
@@ -136,16 +131,8 @@ nav ul li {
     margin: 0;
 }
 
-nav ul li:nth-child(2) {
-    /* margin: 2vw 0; */
-}
-
 nav li span {
     border-bottom: 1px solid black;
-}
-
-nav li img {
-    /* width: 7vw; */
 }
 
 nav ul li a:hover {
@@ -155,7 +142,6 @@ nav ul li a:hover {
 
 .hamburger {
     display: flex;
-    justify-content: baseline;
     position: absolute;
     top: 1.5vw;
     right: 2vw;

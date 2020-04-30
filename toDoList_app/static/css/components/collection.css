@@ -1,3 +1,7 @@
+.coll-cont {
+    margin-top: 2vh;
+}
+
 .coll-cont .collection {
     /* border: .25vw rgba(0, 0, 0, 0.315) solid; */
     /* border-top: .15vw black solid; */
@@ -7,32 +11,48 @@
 }
 
 .coll-cont .collection .title {
-    /* background-color: #eeeeee; */
+    background-color: #f9f9f9;
     text-align: center;
     padding: 0vh 0vw 1vh .5vw;
     letter-spacing: .25vw;
     font-size: 6vw;
     font-weight: 550;
-    border-bottom: 1px rgba(0, 0, 0, 0.158) solid;
+    /* border-bottom: .3vw #00000023 solid; */
+    color: #000000b7;
 }
 
 .coll-cont .collection ul {
     /* list-style: initial; */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.096);
+    border-bottom: .3vw solid #00000023;
+    background-color: #f9f9f9;
 }
 
 .coll-cont .collection ul li {
-    padding: .5vh 2vw;
+    padding: .75vh 2vw;
     /* border-left: 1px solid black; */
-    border-bottom: 1px solid rgba(0, 0, 0, 0.062);
+    border-bottom: .3vw solid #00000023;
     font-size: 4.5vw;
+    color: rgba(0, 0, 0, 0.822);
+}
+
+.coll-cont .elseNoColl {
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #00000057;
+    background-color: #f9f9f9;
+    border-bottom: .3vw #00000028 solid;
+    letter-spacing: .5vw;
+    font-weight: 550;
+    font-size: 4vw;
 }
 
 .coll-cont .collection .coll-footer {
     display: flex;
     justify-content: space-between;
     /* height: 0; */
-    background-color: transparent;
+    background-color: #f9f9f9;
 }
 
 .coll-cont .collection .coll-footer div {
@@ -48,7 +68,7 @@
     /* background-color: #000066; */
     color: #00006685;
     /* padding: 2vw; */
-    width: 25%;
+    width: 35%;
     display: flex;
     justify-content: space-between;
 }
