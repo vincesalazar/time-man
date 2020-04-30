@@ -27,7 +27,7 @@
 }
 
 .main form input[type=text] {
-    background-color: #eeeeee;
+    background-color: #fbfbfb;
     font-size: 6vw;
     padding-bottom: 2vw;
     text-align: center;
@@ -37,7 +37,7 @@
 }
 
 .main form input[type=text]:focus {
-    background-color: #e7e7e7;
+    background-color: #f3f3f3;
 }
 
 .main form input[type=submit] {
@@ -150,7 +150,7 @@
     color: #00000046;
     font-size: 6vw;
     font-weight: 550;
-    background-color: #ededed;
+    background-color: #fbfbfb;
 }
 
 .coll-cont h1 {
