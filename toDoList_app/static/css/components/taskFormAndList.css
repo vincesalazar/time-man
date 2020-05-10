@@ -5,10 +5,6 @@
     justify-content: center;
 }
 
-.main-form form div .add-button {
-    width: 7vw;
-}
-
 .main-form form {
     display: flex;
     flex-direction: column;
@@ -21,29 +17,34 @@
     padding: 1vw 0;
     outline: none;
     border: none;
+    /* font-family: 'Handlee', cursive; */
+    font-family: 'Open Sans', sans-serif;
 }
 
 .main-form form input[type=text]:focus {
-    background-color: #f2f2f2;
+    background-color: #f1f1f1;
 }
 
 .main-form form input[type=submit] {
     min-width: 1rem;
-    margin-top: 2vw;
-    padding: 1vh 1vw;
+    margin-top: 2vh;
+    padding: 1vh 1.5vw;
     background-color: #000066b6;
     background-color: transparent;
     color: #000066;
     border-radius: .2rem;
     outline: none;
-    border: none;
     align-self: center;
     font-size: 4.5vw;
-    border: .95px rgb(0, 0, 0) solid;
+    border: .2vw rgb(0, 0, 0) solid;
+    transition: color .5s, box-shadow .7s;
+    cursor: none;
 }
 
 .main-form form input[type=submit]:hover {
-    background-color: #000066da;
+    box-shadow: inset 0 0 0 3rem #000066;
+    color: #f0f0f0;
+    transition: color .6s, box-shadow .8s;
 }
 
 .tasks {
@@ -59,26 +60,24 @@
 
 .tasks ul li {
     /* background-color: #0000661c; */
-    font-size: 5vw;
-    overflow: scroll;
     word-wrap: break-word;
-    padding-top: 2vw;
-    padding: 2vw 2vw 0 2vw;
+    padding: 2vh 2vw;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: rgba(0, 0, 0, 0.247) .1vw solid;
+    /* border-bottom: rgba(0, 0, 0, 0.247) .1vw solid; */
     color: rgba(0, 0, 0, 0.842);
     /* position: relative; */
 }
 
 .tasks ul li .content {
-    width: 50%;
+    font-size: 4.5vw;
+    width: 70%;
     text-align: left;
 }
 
 .tasks ul li .buttons {
-    width: 7%;
+    width: 5%;
     display: flex;
     padding-top: 1vw;
     opacity: .8;
@@ -128,4 +127,32 @@
     font-size: 6vw;
     font-weight: 550;
     background-color: #fbfbfb;
+}
+
+@media only screen and (min-width:767px) {
+    .main-form form input[type=text] {
+        font-size: 2.5vw;
+        margin-top: 2vh;
+    }
+    .main-form form input[type=submit] {
+        font-size: 2vw;
+        border-top: .1vw #000066 solid;
+        border-left: .1vw #000066 solid;
+        border-right: .1vw #000066aa solid;
+        border-bottom: .1vw #000066aa solid;
+        padding: .5vh .7vw;
+    }
+    .tasks ul li .content {
+        font-size: 2vw;
+        width: 80%;
+    }
+    .tasks ul li .buttons {
+        width: 2%;
+    }
+    .tasks ul li .buttons img {
+        width: 1vw;
+    }
+    .no-tasks {
+        font-size: 3vw;
+    }
 }

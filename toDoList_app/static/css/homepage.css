@@ -1,7 +1,3 @@
-.for-footer {
-    min-height: 90vh;
-}
-
 .coll-cont h1 {
     font-size: 5.5vw;
     padding: 0 2vw;
@@ -35,15 +31,17 @@
 }
 
 
-/* IF THEYRE ARE NO COLLECTIONS */
+/* IF THERE ARE NO COLLECTIONS */
 
 .else h1 {
-    font-size: 5vw;
+    font-size: 5.5vw;
     padding: 0 2vw;
     color: rgba(0, 0, 0, 0.637);
+    margin-top: 3vw;
     letter-spacing: .5vw;
     display: flex;
     justify-content: space-between;
+    justify-content: baseline;
 }
 
 .else h1 div {
@@ -55,13 +53,11 @@
     padding: 0;
     color: black;
     text-align: end;
+    letter-spacing: .25vw;
+    margin-top: 2%;
 }
 
-.else h1 div span {
-    padding-bottom: .25vh;
-    opacity: .75;
-    padding-right: 1vw;
-}
+.else h1 div span {}
 
 .else h1 div span img {
     width: 2.5vw;
@@ -77,4 +73,38 @@
     font-size: 6vw;
     font-weight: 550;
     background-color: #fbfbfb;
+}
+
+
+/* **************** */
+
+@media only screen and (min-width:767px) {
+    .coll-cont h1 {
+        font-size: 2.5vw;
+        margin-top: 1vw;
+    }
+    .coll-cont h1 div {
+        font-size: 1.9vw;
+    }
+    .coll-cont h1 div span {
+        border-bottom: .1vw black solid;
+    }
+    .coll-cont h1 div span img {
+        width: 1vw;
+    }
+    .else h1 {
+        font-size: 3vw;
+        margin-top: 1.5vw;
+    }
+    .else h1 div {
+        font-size: 2vw;
+    }
+    .else h1 div span img {
+        width: 1vw;
+        justify-self: flex-end;
+    }
+    .else div:nth-child(2) {
+        font-size: 3vw;
+        height: 50vh;
+    }
 }

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/global.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/collection.css' %}">
     <link rel="stylesheet" href="{% static 'css/components/taskFormAndList.css' %}">
@@ -14,11 +15,13 @@
 </head>
 
 <body>
+    <!-- i should name it container or something -->
     <div class="for-footer">
         <div class="logo-trigger"></div>
         <div class="logo" onclick="logoClick()">Task Man</div>
+        <!-- nav for phone -->
         <nav>
-            <div class="nav-logo">X</div>
+            <div class="phone-x">X</div>
             <ul>
                 <li><a href="/homepage"><span>Home</span></a></li>
                 <li><a href="/collections"><span>Manage Collections</span></a></li>
@@ -27,6 +30,14 @@
         </nav>
         <div class="hamburger">
             <img src="https://img.icons8.com/ios-filled/50/000000/menu-rounded.png" />
+        </div>
+        <!-- nav for desktop -->
+        <div class="desktop-nav">
+            <ul>
+                <li><a href="/homepage"><span>Home</span></a></li>
+                <li><a href="/collections"><span>Manage Collections</span></a></li>
+                <li><a href="/logout"><span>Log out</span></a></li>
+            </ul>
         </div>
         <div class="main-form">
             <form action="/homepage/createTask" method="POST">
@@ -49,16 +60,14 @@
                 {% endfor %}
             </ul>
         </div>
-        <!-- <div id="show-button">
-            <div class="show-more">Show All</div>
-            <div class="show-less">Show Less</div>
-        </div> -->
         {% else %}
         <div class="no-tasks">No General Tasks</div>
         {% endif %} {% if user_collections %}
         <div class="coll-cont">
             <h1>All Collections
-                <div><span><img src="{% static 'images/plusIcon.png' %}" alt="plus sign"> Collection</span></div>
+                <a href="collections">
+                    <div><span><img src="{% static 'images/plusIcon.png' %}" alt="plus sign"> Collection</span></div>
+                </a>
             </h1>
             {% for collection in user_collections %}
             <div class="collection">
@@ -74,6 +83,7 @@
                 {% endif %}
                 <div class="coll-footer">
                     <div><a>Show More</a></div>
+                    <div><a>Show Less</a></div>
                     <div><a href="/collections/{{collection.title}}">Add Task</a> <a href="/delete/{{collection.id}}">Delete</a></div>
                 </div>
             </div>
@@ -87,7 +97,7 @@
             {% endif %}
         </div>
     </div>
-    <div style="font-size: 3.5vw; color: #000000a8; letter-spacing: .4vw; text-align: center;">last loaded at:<br/>{% now "SHORT_DATETIME_FORMAT" %}</div>
+    <div class="timestamp">last loaded at:<br/>{% now "SHORT_DATETIME_FORMAT" %}</div>
     <footer>
         <!-- <a href="https://icons8.com/icon/70761/chevron-left">Chevron Left icon by Icons8</a> -->
         <a target="_blank" href="https://icons8.com/icon/36389/menu-rounded">Menu Rounded icon by Icons8</a>
