@@ -21,7 +21,7 @@ def homepage(request):
     context = {
         "user": User.objects.get(id=user_id),
         "general_tasks": Task.objects.filter(user_id = user_id, collection_id = collection.id).order_by('-created_at'),
-        "user_collections": collections.order_by('-created_at'),
+        "user_collections": collections.order_by('updated_at'),
     }
     return render(request, 'homepage.html', context)
 
@@ -34,7 +34,7 @@ def collectionsPage (request):
 
     context = {
         "user": User.objects.get(id=user_id),
-        "user_collections": Collection.objects.filter(user_id = request.session['user_id']).order_by('-created_at')
+        "user_collections": Collection.objects.filter(user_id = request.session['user_id']).order_by('updated_at')
     }
     return render(request, "collectionsPage.html", context)
 
