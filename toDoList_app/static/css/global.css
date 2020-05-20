@@ -25,6 +25,7 @@ body {
     /* justify-content: center; */
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -73,7 +74,7 @@ input[type=text] {
 .logo {
     font-weight: 700;
     text-shadow: 2px 2px rgba(0, 0, 0, 0.068);
-    font-size: 7vw;
+    font-size: 6vw;
     cursor: default;
     color: #000066;
     letter-spacing: 1.75px;
@@ -155,6 +156,10 @@ nav ul li a:hover {
     display: none;
 }
 
+.side-nav-for-desktop {
+    display: none;
+}
+
 .hamburger {
     display: flex;
     position: fixed;
@@ -167,8 +172,8 @@ nav ul li a:hover {
 }
 
 .hamburger img {
-    width: 7vw;
-    height: 7vw;
+    width: 6.5vw;
+    height: 6.5vw;
     /* margin: 0 -.5vw; */
 }
 
@@ -193,7 +198,7 @@ footer {
 
 @media only screen and (min-width: 767px) {
     body {
-        padding-top: 5.9%;
+        padding-top: 5.5%;
     }
     .logo {
         font-size: 3vw;
@@ -226,11 +231,30 @@ footer {
         opacity: 1;
     }
     .desktop-nav ul li a {
-        cursor: none;
+        cursor: pointer;
     }
     .desktop-nav ul li a span {
-        font-family: 'handlee', cursive;
+        font-family: 'Source Sans Pro', sans-serif;
         font-family: 'Sriracha', cursive;
+        font-family: 'Handlee', cursive;
+        font-family: 'Jost', sans-serif;
+        font-family: 'Open Sans', sans-serif;
+    }
+    .side-nav-for-desktop {
+        display: block;
+        position: fixed;
+        left: 1%;
+        top: 35%;
+        min-height: 1rem;
+    }
+    .side-nav-for-desktop ul {
+        display: flex;
+        flex-direction: column;
+        height: 30vh;
+        justify-content: space-between;
+    }
+    .side-nav-for-desktop ul li a {
+        font-size: 2vw;
     }
     .for-footer {
         padding: 0 12.5%;
