@@ -29,9 +29,9 @@
 }
 
 .coll-cont .collection ul li {
-    padding: .75vh 2vw;
+    padding: 1vh 2vw;
     /* border-left: 1px solid black; */
-    border-bottom: .3vw solid #00000023;
+    border-bottom: .2vw solid #00000023;
     font-size: 4.5vw;
     color: rgba(0, 0, 0, 0.822);
 }
@@ -91,6 +91,11 @@
     .coll-cont .collection ul li {
         font-size: 2vw;
         border-bottom: .05vw solid #00000023;
+    }
+    .coll-cont .elseNoColl {
+        font-size: 2vw;
+        border-bottom: none;
+        height: 20vh;
     }
     .coll-cont .collection .coll-footer div {
         font-size: 2vw;
