@@ -1,0 +1,164 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-image: url("https://picsum.photos/2000/2000");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-origin: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (max-width: 768px) {
+  body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+
+body .left,
+body .right {
+  background: #222222cc;
+  margin: 2% 0;
+  border-radius: 7px;
+  padding: 1.5% 2.5%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 768px) {
+  body .left,
+  body .right {
+    padding: 1% 5%;
+  }
+}
+
+body .left h1,
+body .right h1 {
+  font-size: 2vw;
+  color: white;
+  margin-bottom: 10%;
+}
+
+@media (max-width: 768px) {
+  body .left h1,
+  body .right h1 {
+    font-size: 4vw;
+  }
+}
+
+body .left form,
+body .right form {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .left form label,
+body .right form label {
+  font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+  body .left form label,
+  body .right form label {
+    font-size: 2.5vw;
+  }
+}
+
+body .left form input[type="text"],
+body .left form input[type="email"],
+body .left form input[type="password"],
+body .right form input[type="text"],
+body .right form input[type="email"],
+body .right form input[type="password"] {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  border-bottom: white solid 1px;
+  color: white;
+  font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+  body .left form input[type="text"],
+  body .left form input[type="email"],
+  body .left form input[type="password"],
+  body .right form input[type="text"],
+  body .right form input[type="email"],
+  body .right form input[type="password"] {
+    font-size: 2.5vw;
+  }
+}
+
+body .left form input[type="submit"],
+body .right form input[type="submit"] {
+  color: white;
+  padding: 1rem;
+  background-color: transparent;
+  outline: none;
+  border: white 1px solid;
+  font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+  body .left form input[type="submit"],
+  body .right form input[type="submit"] {
+    font-size: 2.5vw;
+  }
+}
+
+body .left form input[type="submit"]:hover,
+body .right form input[type="submit"]:hover {
+  border: dashed;
+}
+/*# sourceMappingURL=index.css.map */
